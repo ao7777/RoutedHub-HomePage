@@ -1,21 +1,22 @@
-use yew::prelude::*;
+use crate::{
+    component::{footer::Footer, header::Header},
+    router::Body,
+};
+use yew::{function_component, html, Html};
+use yew_router::BrowserRouter;
+mod component;
+mod page;
+mod router;
 
 #[function_component]
 fn App() -> Html {
-    let counter = use_state(|| 0);
-    let onclick = {
-        let counter = counter.clone();
-        move |_| {
-            let value = *counter + 1;
-            counter.set(value);
-        }
-    };
-
     html! {
-        <div>
-            <button {onclick}>{ "+1" }</button>
-            <p>{ *counter }</p>
-        </div>
+        <BrowserRouter >
+            <Header />
+            <Body />
+            <Footer />
+        </BrowserRouter >
+        
     }
 }
 

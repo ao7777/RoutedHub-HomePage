@@ -26,3 +26,12 @@ pub fn about() -> Html {
         </>
     }
 }
+
+#[function_component(News)]
+pub fn news() -> Html {
+    html! {
+        <>
+            <h1>{ "News" }</h1>
+        </>
+    }
+}

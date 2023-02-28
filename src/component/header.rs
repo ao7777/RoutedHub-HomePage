@@ -5,9 +5,9 @@ use crate::router::Nav;
 #[function_component]
 pub fn Header() -> Html {
     html! {
-        <header class="bg-red-700/75 py-2 px-1 flex items-center text-white shadow-lg">
+        <header class="bg-rose-900 py-2 px-1 flex items-center text-white shadow-lg justify-center">
             <Logo />
-            <h1 class="text-4xl font-bold px-2">
+            <h1 class="text-2xl font-bold px-2 select-none">
                 { "RoutedHub" }
             </h1>
             <Nav />
@@ -20,8 +20,8 @@ pub fn Header() -> Html {
 fn Logo() -> Html {
     html! {
     <svg
-       width="70px"
-       height="70px"
+       width="50px"
+       height="50px"
        viewBox="0 0 210 210"
        version="1.1"
        id="svg5"

@@ -9,3 +9,5 @@ edition = "2021"
 yew = { version = "0.20.0", features = ["csr"] }
 chrono = "0.4.19"
 yew-router = "0.17.0"
+strum = "0.22.0"
+strum_macros = "0.22.0"

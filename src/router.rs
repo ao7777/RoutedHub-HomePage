@@ -1,7 +1,7 @@
 use yew::{classes, function_component, html, Html};
 use yew_router::prelude::*;
 
-use crate::page::{Landing, NotFound, About, News};
+use crate::page::{About, Landing, News, NotFound};
 
 #[derive(Clone, Routable, PartialEq)]
 enum AppRoute {
@@ -16,20 +16,50 @@ enum AppRoute {
     NotFound,
 }
 
+struct RouteItem {
+    route: AppRoute,
+    label: &'static str,
+}
+
+
 #[function_component]
 pub fn Nav() -> Html {
-    let link_style = classes!("hover:text-white","text-xl","px-3","flex-initial","transition","ease-in-out","delay-100","duration-500","text-white/70");
+    let link_style = classes!(
+        "hover:text-white",
+        "text-xl",
+        "px-3",
+        "flex-initial",
+        "transition",
+        "ease-in-out",
+        "delay-100",
+        "duration-500",
+        "text-white/70"
+    );
+    let route_items: Vec<RouteItem> = vec![
+        RouteItem {
+            route: AppRoute::Landing,
+            label: "主页",
+        },
+        RouteItem {
+            route: AppRoute::News,
+            label: "新闻",
+        },
+        RouteItem {
+            route: AppRoute::About,
+            label: "关于我们",
+        },
+    ];
     html!(
         <>
-            <Link<AppRoute> to={AppRoute::Landing} classes={link_style.clone()}>
-                { "主页" }
-            </Link<AppRoute> >
-            <Link<AppRoute> to={AppRoute::News} classes={link_style.clone()}>
-                { "新闻" }
-            </Link<AppRoute> >
-            <Link<AppRoute> to={AppRoute::About} classes={link_style}>
-                { "关于我们" }
-            </Link<AppRoute> >
+            {
+                for route_items.iter().map(|route| {
+                    html! {
+                            <Link<AppRoute> to={route.route.clone()} classes={link_style.clone()}>
+                                {route.label}
+                            </Link<AppRoute>>
+                    }
+                })
+            }
         </>
     )
 }

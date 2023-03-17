@@ -1,15 +1,16 @@
 module.exports = {
     mode: 'jit',
-    purge: {
-        mode: "all",
-        content: [
-            "./src/**/*.rs",
-            "./index.html",
-            "./src/**/*.html",
-            "./src/**/*.css",
-        ],
+    content: [
+        "./src/**/*.rs",
+        "./index.html",
+        "./src/**/*.html",
+        "./src/**/*.css",
+    ],
+    theme: {
+        fontSize: {
+            'xll': '25vw',
+        }
     },
-    theme: {},
     variants: {},
     plugins: [],
 };
